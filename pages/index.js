@@ -18,6 +18,28 @@ function ProfileSidebar(props) {
   )
 }
 
+function ProfileRelationsBox(props) {
+  return (
+    <ProfileRelationsBoxWrapper >
+      <h2 className="smallTitle">
+        {props.title} ({props.items.length})
+      </h2>
+      <ul>
+        {props.items.slice(0, 6).map((follower) => {
+          return (
+            <li key={follower}>
+              <a href={`/users/${follower.id}`}>
+                <img src={`${follower.avatar_url}`} style={{ borderRadius: '8px' }} />
+                <span>{follower.login}</span>
+              </a>
+            </li>
+          )
+        })}
+      </ul>
+    </ProfileRelationsBoxWrapper >
+  )
+}
+
 export default function Home() {
   const githubUser = 'LariMoro20';
   const [comunidades, setComunidades] = React.useState([{
@@ -25,7 +47,24 @@ export default function Home() {
     title: 'Eu odeio acordar cedo',
     image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg',
   }]);
-  const pessoasFav = ['juunegreiros', 'omariosouto', 'peas', 'rafaballerini', 'felipefialho', githubUser];
+  const pessoasFav = [
+    'juunegreiros',
+    'omariosouto',
+    'peas',
+    'rafaballerini',
+    'felipefialho',
+    githubUser
+  ];
+  const [followers, setFollowers] = React.useState([])
+  React.useEffect(() => {
+    fetch('https://api.github.com/users/LariMoro20/followers')
+      .then((res) => {
+        return res.json()
+      }).then((respComplete) => {
+        setFollowers(respComplete)
+      })
+  }, [])
+
   return (
     <>
       <AlurakutMenu githubUser={githubUser} />
@@ -51,8 +90,6 @@ export default function Home() {
               }
               const newcomunidades = [...comunidades, comunidade]
               setComunidades(newcomunidades)
-
-
             }}>
               <div>
                 <input
@@ -77,6 +114,7 @@ export default function Home() {
           </Box>
         </div>
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
+          <ProfileRelationsBox items={followers} title="Seguidores" />
           <ProfileRelationsBoxWrapper >
             <h2 className="smallTitle">Comunidades ({comunidades.length})</h2>
 
