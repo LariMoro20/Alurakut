@@ -114,7 +114,6 @@ export default function Home() {
           </Box>
         </div>
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
-          <ProfileRelationsBox items={followers} title="Seguidores" />
           <ProfileRelationsBoxWrapper >
             <h2 className="smallTitle">Comunidades ({comunidades.length})</h2>
 
@@ -131,6 +130,8 @@ export default function Home() {
               })}
             </ul>
           </ProfileRelationsBoxWrapper >
+          <ProfileRelationsBox items={followers} title="Seguidores" />
+
           <ProfileRelationsBoxWrapper >
 
             <h2 className="smallTitle">Pessoas da Comunidade ({pessoasFav.length})</h2>
