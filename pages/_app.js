@@ -39,7 +39,7 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <Head>
           <title>Alurakut - Larissa Santos</title>
-          <link rel="shortcut icon" href="/logo-favicon.ico" />
+          <link rel="shortcut icon" href="https://alurakut-larimoro.vercel.app/logo-favicon.ico" />
           <meta charset="utf-8" />
           <meta http-equiv="content-language" content="pt-br" />
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -52,7 +52,7 @@ export default function App({ Component, pageProps }) {
           <meta property="og:title" content="Alurakut - Larissa Santos" />
           <meta property="og:description" content="Atividade desenvolvida por Larissa Santos na Imersão React 3ª edição da Alura" />
           <meta property="og:url" content="https://alurakut-larimoro.vercel.app/" />
-          <meta property="og:image" content="/logo-favicon.ico" />
+          <meta property="og:image" content="https://alurakut-larimoro.vercel.app/logo-favicon.ico" />
         </Head>
         <Component {...pageProps} />
       </ThemeProvider>
