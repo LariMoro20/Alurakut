@@ -38,8 +38,16 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <Head>
-          <title>Alurakut</title>
+          <title>Alurakut - Larissa Santos</title>
           <link rel="shortcut icon" href="/logo-favicon.ico" />
+          <meta charset="utf-8" />
+          <meta http-equiv="content-language" content="pt-br" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+          <meta name="description" content="Alurakut desenvolvido por Larissa Santos na Imersão React 3ª edição da Alura" />
+          <meta name="author" content="Larissa Moro S. Santos" />
+          <meta name="keywords" content="imersao, react, alura, curso, resultado" />
+          <meta name="copyright" content="© 2022 Larissa Santos" />
         </Head>
         <Component {...pageProps} />
       </ThemeProvider>
