@@ -46,15 +46,15 @@ export default function Home(props) {
   const githubUser = props.githubUser;
   const [comunidades, setComunidades] = React.useState([]);
 
-  const recados = Math.random(100);
-  const fotos = Math.random(1000);
-  const videos = Math.random(1000);
-  const fas = Math.random(3500);
-  const mensagens = Math.random(300);
+  const recados = Math.floor(Math.random() * 1001);
+  const fotos = Math.floor(Math.random() * 1001);
+  const videos = Math.floor(Math.random() * 1001);
+  const fas = Math.floor(Math.random() * 1001);
+  const mensagens = Math.floor(Math.random() * 1001);
 
-  const confiavel = Math.random(3);
-  const legal = Math.random(3);
-  const sexy = Math.random(3);
+  const confiavel = Math.floor(Math.random() * 4);
+  const legal = Math.floor(Math.random() * 4);
+  const sexy = Math.floor(Math.random() * 4);
   const pessoasFav = [
     'juunegreiros',
     'omariosouto',
