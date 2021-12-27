@@ -1,9 +1,6 @@
 import React from 'react'
 import { AlurakutMenu, AlurakutProfileSidebarMenuDefault } from '../src/lib/AlurakutCommons'
 import { ProfileFriendsRelationsWraper } from '../src/components/ProfileFriendsRelations'
-
-
-
 function FriendsBox(props) {
     return (
         <ProfileFriendsRelationsWraper >
@@ -26,8 +23,7 @@ function FriendsBox(props) {
     )
 }
 
-
-export default function Amigos(props) {
+export default function Comunidades(props) {
     const githubUser = props.githubUser;
     const [followers, setFollowers] = React.useState([])
     React.useEffect(() => {
