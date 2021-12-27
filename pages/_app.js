@@ -36,6 +36,10 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <Head>
+          <title>Alurakut Larissa Santos</title>
+          <link rel="shortcut icon" href="/logo-favicon.ico" />
+        </Head>
         <Component {...pageProps} />
       </ThemeProvider>
     </>
