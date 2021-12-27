@@ -46,17 +46,8 @@ function FriendsBox(props) {
 }
 
 
-export default function Home(props) {
+export default function Amigos(props) {
     const githubUser = props.githubUser;
-    const [comunidades, setComunidades] = React.useState([]);
-    const pessoasFav = [
-        'juunegreiros',
-        'omariosouto',
-        'peas',
-        'rafaballerini',
-        'felipefialho',
-        githubUser
-    ];
     const [followers, setFollowers] = React.useState([])
     React.useEffect(() => {
         fetch(`https://api.github.com/users/${githubUser}/followers`)
@@ -91,14 +82,8 @@ export default function Home(props) {
         <>
             <AlurakutMenu githubUser={githubUser} />
             <div>
-
-
                 <div className="profileRelationsArea" style={{ gridArea: 'profileFriendsArea' }}>
-
                     <FriendsBox items={followers} title="Amigos" />
-                    <FriendsBox items={followers} title="Amigos" />
-
-
                 </div>
             </div>
         </>
