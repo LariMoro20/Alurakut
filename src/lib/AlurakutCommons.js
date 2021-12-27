@@ -80,7 +80,7 @@ AlurakutMenu.Wrapper = styled.header`
     }
     .boxLink {
       font-size: 18px;
-      color: #2E7BB4;
+      color: #46427d;
       -webkit-text-decoration: none;
       text-decoration: none;
       font-weight: 800;
@@ -222,7 +222,7 @@ export function AlurakutProfileSidebarMenuDefault() {
 AlurakutProfileSidebarMenuDefault.Wrapper = styled.div`
   a {
     font-size: 12px;
-    color: #2E7BB4;
+    color: #46427d;
     margin-bottom: 16px;
     display: flex;
     align-items: center;
@@ -324,10 +324,10 @@ const AlurakutLoginScreen = css`
     --backgroundSecondary: #F1F9FE;
     --backgroundTertiary: #FFFFFF;
     --backgroundQuarternary: #BBCDE8;
-    --colorPrimary: #2E7BB4;
-    --colorSecondary: #388BB0;
-    --colorTertiary: #2F4A71;
-    --colorQuarternary: #D81D99;
+    --colorPrimary: #46427d;
+    --colorSecondary: #46427d;
+    --colorTertiary:#46427d;
+    --colorQuarternary:#46427d;
     --textPrimaryColor: #333333;
     --textSecondaryColor: #FFFFFF;
     --textTertiaryColor: #5A5A5A;
@@ -438,15 +438,16 @@ const AlurakutLoginScreen = css`
     }
     .footerArea {
       grid-area: footerArea;
-      background-color: var(--backgroundQuarternary);
+      background-color: #46427d;
       border-radius: var(--commonRadius);
       padding: 8px;
       p {
         font-size: 12px;
         text-align: center;
+        color: white;
         a {
           text-decoration: none;
-          color: var(--colorPrimary);
+          color: white;
         }
       }
     }

@@ -8,7 +8,7 @@ const Box = styled.div`
   margin-bottom: 10px;
   .boxLink {
     font-size: 14px;
-    color: #2E7BB4;
+    color: #46427d;
     text-decoration: none;
     font-weight: 800;
   }
