@@ -5,7 +5,7 @@ import nookies from 'nookies';
 
 export default function Login() {
   const router = useRouter();
-  const [githubUser, setGithubUser] = React.useState('omariosouto');
+  const [githubUser, setGithubUser] = React.useState('larimoro20');
 
   return (
     <main style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -20,39 +20,39 @@ export default function Login() {
 
         <section className="formArea">
           <form className="box" onSubmit={(infosDoEvento) => {
-                infosDoEvento.preventDefault();
-                // alert('Alguém clicou no botão!')
-                console.log('Usuário: ', githubUser)
-                fetch('https://alurakut.vercel.app/api/login', {
-                    method: 'POST',
-                    headers: {
-                       'Content-Type': 'application/json'  
-                    },
-                    body: JSON.stringify({ githubUser: githubUser })
+            infosDoEvento.preventDefault();
+            // alert('Alguém clicou no botão!')
+            console.log('Usuário: ', githubUser)
+            fetch('https://alurakut.vercel.app/api/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ githubUser: githubUser })
+            })
+              .then(async (respostaDoServer) => {
+                const dadosDaResposta = await respostaDoServer.json()
+                const token = dadosDaResposta.token;
+                nookies.set(null, 'USER_TOKEN', token, {
+                  path: '/',
+                  maxAge: 86400 * 7
                 })
-                .then(async (respostaDoServer) => {
-                    const dadosDaResposta = await respostaDoServer.json()
-                    const token = dadosDaResposta.token;
-                    nookies.set(null, 'USER_TOKEN', token, {
-                        path: '/',
-                        maxAge: 86400 * 7 
-                    })
-                    router.push('/')
-                })
+                router.push('/')
+              })
           }}>
             <p>
               Acesse agora mesmo com seu usuário do <strong>GitHub</strong>!
-          </p>
+            </p>
             <input
-                placeholder="Usuário"
-                value={githubUser}
-                onChange={(evento) => {
-                    setGithubUser(evento.target.value)
-                }}
+              placeholder="Usuário"
+              value={githubUser}
+              onChange={(evento) => {
+                setGithubUser(evento.target.value)
+              }}
             />
             {githubUser.length === 0
-                ? 'Preencha o campo'
-                : ''
+              ? 'Preencha o campo'
+              : ''
             }
             <button type="submit">
               Login
@@ -65,7 +65,7 @@ export default function Login() {
               <a href="/login">
                 <strong>
                   ENTRAR JÁ
-              </strong>
+                </strong>
               </a>
             </p>
           </footer>
