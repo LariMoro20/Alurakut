@@ -45,6 +45,16 @@ function ProfileRelationsBox(props) {
 export default function Home(props) {
   const githubUser = props.githubUser;
   const [comunidades, setComunidades] = React.useState([]);
+
+  const recados = Math.random(100);
+  const fotos = Math.random(1000);
+  const videos = Math.random(1000);
+  const fas = Math.random(3500);
+  const mensagens = Math.random(300);
+
+  const confiavel = Math.random(3);
+  const legal = Math.random(3);
+  const sexy = Math.random(3);
   const pessoasFav = [
     'juunegreiros',
     'omariosouto',
@@ -93,7 +103,14 @@ export default function Home(props) {
         <div className="welcomeArea" style={{ gridArea: 'welcomeArea' }}>
           <Box>
             <h1 className="title">Bem vindo(a)</h1>
-            <OrkutNostalgicIconSet />
+            <OrkutNostalgicIconSet recados={recados}
+              fotos={fotos}
+              videos={videos}
+              fas={fas}
+              mensagens={mensagens}
+              confiavel={confiavel}
+              legal={legal}
+              sexy={sexy} />
           </Box>
           <Box>
             <h2 className='subTitle'>O que você deseja fazer?</h2>
@@ -184,25 +201,25 @@ export default function Home(props) {
 export async function getServerSideProps(context) {
   const cookies = nookies.get(context)
   const token = cookies.USER_TOKEN
-  const { isAuthenticated  } = await fetch('https://alurakut.vercel.app/api/auth', {
+  const { isAuthenticated } = await fetch('https://alurakut.vercel.app/api/auth', {
     headers: {
       Authorization: token
     },
   }).then((res) => res.json())
-  console.log(isAuthenticated )
-  if (!isAuthenticated ) {
+  console.log(isAuthenticated)
+  if (!isAuthenticated) {
     return {
       redirect: {
         destination: '/login',
         permanent: false
       }
     }
-  }else{
+  } else {
     const { githubUser } = jwt.decode(token)
     return {
       props: { githubUser }
     }
   }
 
-  
+
 }
