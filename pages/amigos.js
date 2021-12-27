@@ -4,7 +4,6 @@ import Box from '../src/components/Box'
 import nookies from 'nookies';
 import jwt from 'jsonwebtoken';
 import { AlurakutMenu, AlurakutProfileSidebarMenuDefault, OrkutNostalgicIconSet } from '../src/lib/AlurakutCommons'
-import { ProfileRelationsBoxWrapper } from '../src/components/ProfileRelations'
 import { ProfileFriendsRelationsWraper } from '../src/components/ProfileFriendsRelations'
 
 
@@ -22,27 +21,6 @@ function ProfileSidebar(props) {
     )
 }
 
-function ProfileRelationsBox(props) {
-    return (
-        <ProfileRelationsBoxWrapper >
-            <h2 className="smallTitle">
-                {props.title} ({props.items.length})
-            </h2>
-            <ul>
-                {props.items.slice(0, 6).map((follower) => {
-                    return (
-                        <li key={follower}>
-                            <a href={`/users/${follower.id}`}>
-                                <img src={`${follower.avatar_url}`} style={{ borderRadius: '8px' }} />
-                                <span>{follower.login}</span>
-                            </a>
-                        </li>
-                    )
-                })}
-            </ul>
-        </ProfileRelationsBoxWrapper >
-    )
-}
 
 
 function FriendsBox(props) {
