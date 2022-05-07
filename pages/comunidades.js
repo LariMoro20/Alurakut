@@ -8,7 +8,7 @@ function FriendsBox(props) {
                 {props.title} ({props.items.length})
             </h2>
             <ul>
-                {props.items.map((follower) => {
+                {props.items.length ? props.items.map((follower) => {
                     return (
                         <li key={follower}>
                             <a href={`/users/${follower.id}`}>
@@ -17,7 +17,7 @@ function FriendsBox(props) {
                             </a>
                         </li>
                     )
-                })}
+                }):''}
             </ul>
         </ProfileFriendsRelationsWraper >
     )

@@ -29,7 +29,7 @@ function ProfileRelationsBox(props) {
                 {props.title} ({props.items.length})
             </h2>
             <ul>
-                {props.items.slice(0, 6).map((follower) => {
+                {props.items.length ? props.items.slice(0, 6).map((follower) => {
                     return (
                         <li key={follower}>
                             <a href={`/users/${follower.id}`}>
@@ -38,7 +38,7 @@ function ProfileRelationsBox(props) {
                             </a>
                         </li>
                     )
-                })}
+                }):''}
             </ul>
         </ProfileRelationsBoxWrapper >
     )
